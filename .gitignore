@@ -98,6 +98,7 @@ venv.bak/
 *.sublime-project
 static/
 media/
+project/local_settings.py
 
 # sftp configuration file
 sftp-config.json

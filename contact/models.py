@@ -23,7 +23,7 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=50, blank=True)
-    create_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=True)

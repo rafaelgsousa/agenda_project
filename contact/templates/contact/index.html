@@ -1,1 +1,19 @@
 {% extends "global/base.html" %}
+{% block content %}
+    {% for contact in contacts %}
+        {% comment %} <div class="contact">
+            <h2>{{ contact.name }}</h2>
+            <p>{{ contact.email }}</p>
+            <p>{{ contact.phone }}</p>
+            <p>{{ contact.address }}</p>
+            <p>{{ contact.city }}</p>
+            <p>{{ contact.state }}</p>
+            <p>{{ contact.zip }}</p>
+            <p>{{ contact.country }}</p>
+            <p>{{ contact.notes }}</p>
+            <p>{{ contact.created }}</p>
+            <p>{{ contact.modified }}</p>
+        </div> {% endcomment %}
+        {{contact.name}} </br>
+    {% endfor %}
+{% endblock content %}
