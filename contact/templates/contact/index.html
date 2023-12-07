@@ -1,19 +1,62 @@
 {% extends "global/base.html" %}
 {% block content %}
-    {% for contact in contacts %}
-        {% comment %} <div class="contact">
-            <h2>{{ contact.name }}</h2>
-            <p>{{ contact.email }}</p>
-            <p>{{ contact.phone }}</p>
-            <p>{{ contact.address }}</p>
-            <p>{{ contact.city }}</p>
-            <p>{{ contact.state }}</p>
-            <p>{{ contact.zip }}</p>
-            <p>{{ contact.country }}</p>
-            <p>{{ contact.notes }}</p>
-            <p>{{ contact.created }}</p>
-            <p>{{ contact.modified }}</p>
-        </div> {% endcomment %}
-        {{contact.name}} </br>
-    {% endfor %}
+{% if page_obj %}
+    <div class="responsive-table">
+        <table class="contacts-table">
+            <caption class="tabel-caption">
+                Contacts
+            </caption>
+            <thead>
+                <tr class="table-row table-row-header" >
+                    <th class="table-header">
+                        ID 
+                    </th><th class="table-header">
+                        First Name
+                    </th>
+                    <th class="table-header">
+                        Last Name
+                    </th>
+                    <th class="table-header">
+                        Phone 
+                    </th>
+                    <th class="table-header">
+                        E-mail
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in page_obj %}
+                    <tr class="table-row">
+                        <td class="table-cel">
+                            <a 
+                                href="{% url 'contact:contact' contact.id %}" 
+                                class="table-link"
+                            >
+                                {{contact.id}}
+                            </a>
+                        </td>
+                        <td class="table-cel">
+                                {{contact.first_name}}
+                        </td>
+                        <td class="table-cel">
+                                {{contact.last_name}}
+                        </td>
+                        <td class="table-cel">
+                                {{contact.phone}}
+                        </td>
+                        <td class="table-cel">
+                                {{contact.email}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="single-contact">
+        <h1 class="single-contact-name">
+            Nenhum contato encontrado.
+        </h1>        
+    </div>
+{% endif %}
 {% endblock content %}
