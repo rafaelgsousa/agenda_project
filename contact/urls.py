@@ -15,4 +15,6 @@ urlpatterns = [
     path('contact/<uuid:contact_id>/delete/', views.delete, name='delete'),
     # user
     path('user/create/', views.register, name='register'),
+    path('user/login/', views.login_view, name='login'),
+    path('user/logout/', views.logout_view, name='logout'),
 ]
